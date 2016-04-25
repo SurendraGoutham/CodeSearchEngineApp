@@ -1,0 +1,107 @@
+<html>
+<head>
+<title>CodeSearchEngine</title>
+<style>
+@charset "utf-8";
+
+body {
+	background: #A2B2F1;
+	color: #000;
+	font: 14px/1.5em "Open Sans", sans-serif;
+	margin: 0;
+}
+
+fieldset {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+input {
+	border: none;
+	font-family: inherit;
+	font-size: inherit;
+	line-height: 1.5em;
+	margin: 0;
+	outline: none;
+	padding: 0;
+	-webkit-appearance: none;
+}
+
+input[type="search"] {
+	-webkit-appearance: textfield;
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+.container {
+	height: 44px;
+	left: 40%;
+	margin: 200px 0 0 -141px;
+	position: absolute;
+	top: 10%;
+	color: black;
+}
+
+/* ---------- SEARCH ---------- */
+#search {
+	background: #42454e;
+	border-radius: 3px;
+	display: inline-block;
+	padding: 7px;
+}
+
+#search input {
+	float: left;
+}
+
+p.text {
+    font: italic bold 15px/10px Georgia, serif;
+    min-width: 450px;
+    font-weight: bold;
+    padding: 6px 90px;
+	margin: 250px 0 0 345px;
+}
+
+#search input[type="search"],#search input[type="submit"] {
+	border-radius: 3px;
+	font-size: 12px;
+}
+
+#search input[type="search"] {
+	background: #fff;
+	color: #42454e;
+	min-width: 450px;
+	padding: 6px 9px;
+}
+
+#search input[type="submit"] {
+	background: #1bba9a;
+	color: #fff;
+	font-weight: bold;
+	margin-left: 7px;
+	padding: 6px 10px;
+}
+
+#search input[type="submit"]:hover {
+	background: #189e83;
+}
+</style>
+</head>
+<body>
+		{% if error %}
+		<p class="text">Please submit a search term.</p>
+		{% endif %}
+	<div class="container">
+		<div id="search">
+			<form action="" method="GET">
+				<input type="search" name="q"> <input type="submit"
+					value="codeSearch" class="button">
+			</form>
+		</div>
+		<!-- end search -->
+	</div>
+	<!-- end container -->
+</body>
+</html>
