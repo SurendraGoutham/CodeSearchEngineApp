@@ -19,6 +19,7 @@ class SearchResult():
     def parsetexts(self):
         #print "Entered the parsetexts "
         texts, words = {}, set()
+        # Here path can be changed as per the redis code folder in your local machine
         for root, directories, filenames in os.walk('D:/Word Searcher/redis-unstable'):
             for filename in filenames:
                 fileglob = os.path.join(root, filename)
@@ -26,15 +27,14 @@ class SearchResult():
                     with open(txtfile, 'r') as f:
                         txt = f.read().split()
                         words |= set(txt)
-                        #words = words.union(set(txt))
-                        #texts[txtfile.split('\\')[-1]] = txt
+                        words = words.union(set(txt))
+                        texts[txtfile.split('\\')[-1]] = txt
                         texts[txtfile] = txt
                         print words
             break
         return texts, words
     
     def getInvIndex(self):
-        #print "Entered the getInvIndex "
         texts = self.texts
         words = self.words
         finvindex = {word:set((txt, wrdindx)
@@ -45,7 +45,6 @@ class SearchResult():
         return finvindex
     
     def termsearch(self, terms):  # Searches full inverted index
-        #print "Entered the termsearch "
         texts = self.texts
         words = self.words
         finvindex =  self.finvindex
